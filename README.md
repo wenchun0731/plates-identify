@@ -3,12 +3,15 @@
 適用於架設在路邊的科技執法攝影機，自動辨識車牌字元。
 ## 前提
 必須先使用yolov7進行車牌追蹤與擷取，才能使用此車牌辨識系統。
+<div align=center>
+ <img src='yolo-car.png' width='400px'>
+</div>
 
-<img src='yolo-car.png' width='400px'>
 
 >  追蹤並框出車牌
- 
-<img src='yolo-plate-cropped.png' width='400px'>
+<div align=center>
+ <img src='yolo-plate-cropped.png' width='400px'>
+</div>
 
 >將車牌擷取
 >開始進行車牌辨識
@@ -18,8 +21,9 @@
 ## 解決方法
 使用Python結合OpenCV做影像處理，要使用這項技術必須得到車牌的三個角座標。
 
-<img src='yolo-car.png' width='200px'><img src='yolo-car.png' width='200px'>
 
+<div class="div1" align=center><img src='before.png' width='200px'></div>
+ 
 > 處理前與處理後對比
 
 ## 影像處理流程
@@ -57,3 +61,4 @@
 ## 文字辨識問題
 可以看到這裡車牌的3都被辨識成5。BNT6302是正向的車牌去做的影像處理但是辨識結果也是錯的，所以可以得知並不是角度的問題。
 Tesseract OCR 的預設英語（eng）訓練數據集包含了多種常見的字體，像是Times new roman、Arial字體。但是可以看到我們台灣的新式車牌字體，與常見的字體會有些許不同，像是3這個字就差很多。所以後續我們會使用Tesseract-LSTM模型進行車牌字體的訓練，針對特別的字去做一些微調，希望能將系統的辨識準確度提高到9成以上。
+
