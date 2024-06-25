@@ -1,6 +1,7 @@
 # 車牌辨識系統
-  * ### 環境:Google Colab 匯入雲端硬碟車牌資料集
-  * ### 使用工具:Python+OpenCV+Tesseract-OCR
+  * #### 環境:Google Colab 匯入雲端硬碟車牌資料集
+  * #### 使用工具:Python+OpenCV+Tesseract-OCR
+  * #### 車牌辨識系統介紹簡報:<車牌辨識.pdf>
 ## 介紹
 這個系統是適用於架設在路邊的科技執法攝影機，自動辨識車牌字元。
 ## 前提
