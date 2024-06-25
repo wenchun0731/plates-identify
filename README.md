@@ -1,8 +1,10 @@
 # 車牌辨識系統
-  * #### 環境:Google Colab 匯入雲端硬碟車牌資料集
-  * #### 使用工具:Python+OpenCV+Tesseract-OCR
-  * #### 車牌辨識系統介紹簡報:[車牌辨識.pdf](https://github.com/wenchun0731/plates-identify/blob/85bfeabb78b4257100ca84d2a24a5d891e179046/%E8%BB%8A%E7%89%8C%E8%BE%A8%E8%AD%98.pdf)
-  * #### 完整程式碼:[plates-identify](https://github.com/wenchun0731/plates-identify/blob/0ed03460d7c0eed901aac9d1228d4bac7a387add/plates_copy.ipynb)
+  * #### 完整程式碼：[plates-identify](https://github.com/wenchun0731/plates-identify/blob/0ed03460d7c0eed901aac9d1228d4bac7a387add/plates_copy.ipynb)
+  * #### 車牌辨識系統介紹簡報：[車牌辨識.pdf](https://github.com/wenchun0731/plates-identify/blob/85bfeabb78b4257100ca84d2a24a5d891e179046/%E8%BB%8A%E7%89%8C%E8%BE%A8%E8%AD%98.pdf)
+  * #### 環境：Google Colab 匯入雲端硬碟車牌資料集
+  * #### 使用工具：Python+OpenCV+Tesseract-OCR
+
+
 ## 一、介紹
 #### 這個系統是適用於架設在路邊的科技執法攝影機，自動辨識車牌字元。
 ## 二、前提
