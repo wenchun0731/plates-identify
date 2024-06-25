@@ -4,13 +4,13 @@
 ## 前提
 必須先使用yolov7進行車牌追蹤與擷取，才能使用此車牌辨識系統。
 <div align=center>
- <img src='yolo-car.png' width='400px'>
+ <img src='yolo-car.png' width='300px'>
 </div>
 
 
 >  追蹤並框出車牌
 <div align=center>
- <img src='yolo-plate-cropped.png' width='400px'>
+ <img src='yolo-plate-cropped.png' width='300px'>
 </div>
 
 >將車牌擷取
@@ -19,16 +19,18 @@
 ## 問題
 由於我們的攝影機是架設在路邊，所以拍攝出來的車牌會是斜的，車牌角度會嚴重影像Tesseract-OCR的字元辨識，所以必須將照片轉正。
 ## 解決方法
-使用Python結合OpenCV做影像處理，要使用這項技術必須得到車牌的三個角座標。
+使用Python結合OpenCV做仿射變換，將照片轉正。要使用這項技術必須得到車牌的三個角座標。
 
 
-<div class="div1" align=center><img src='before.png' width='200px'></div>
+<div class="div1" align=center><img src='before.png' height='150px' ><img src='after.png' height='150px'></div>
+
  
-> 處理前與處理後對比
+> 仿射變換的前後對比
 
 ## 影像處理流程
 #### 1. 尺寸調整
 先將原圖進行尺寸的調整，每一張照片尺寸一樣，後續的參數才會適合每一個車牌。
+<img src='after.png' height='150px'>
 #### 2. 調整亮度與對比度
 調整對比度，減少亮暗的差異，降低光線，提亮陰影。
 #### 3. 灰階化
