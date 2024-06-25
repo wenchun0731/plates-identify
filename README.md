@@ -147,3 +147,7 @@
 |![](OCRproblem4.png)|
 Tesseract OCR 的預設英語（eng）訓練數據集包含了多種常見的字體，像是Times new roman、Arial字體。但是可以看到我們台灣的新式車牌字體，與常見的字體會有些許不同，像是3這個字就差很多。所以後續我們會使用Tesseract-LSTM模型進行車牌字體的訓練，針對特別的字去做一些微調，希望能將系統的辨識準確度提高到9成以上。
 
+|台灣新式車牌字體|Times New Roman|
+|----|----|
+|![](twplateword.png)|![](Timesnewroman.png)|
+
