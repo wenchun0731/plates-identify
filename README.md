@@ -11,13 +11,13 @@
 必須先進行車牌追蹤與擷取，才能使用此車牌辨識系統。
 
 <div align=center>
- <img src='yolo-car.png' width='300px'>
+ <img src='src/yolo-car.png' width='300px'>
 </div>
 
 
 >  本專題用的是yolov7模型去進行車牌追蹤與擷取，框出車牌區域。
 <div align=center>
- <img src='yolo-plate-cropped.png' width='300px'>
+ <img src='src/yolo-plate-cropped.png' width='300px'>
 </div>
 
 >將車牌擷取
@@ -30,7 +30,7 @@
 
 |仿射變換前|仿射變換後|
 |----|----|
-|![before](before.png)|![after](after.png)|
+|![before](src/before.png)|![after](src/after.png)|
  
 > 仿射變換的前後對比
 
@@ -45,7 +45,7 @@ image = cv2.resize(image, (target_width, target_height))
 ```
 
 <div align=center>
- <img src='original.png' width='250px'>
+ <img src='src/original.png' width='250px'>
 </div>
 
 ### 2. 調整亮度與對比度
@@ -58,7 +58,7 @@ adjusted_image = cv2.convertScaleAbs(image, alpha=alpha, beta=beta)
 ```
 
 <div align=center>
- <img src='adjusted.png' width='250px'>
+ <img src='src/adjusted.png' width='250px'>
 </div>
 
 ### 3. 灰階化
@@ -69,7 +69,7 @@ gray_image = cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
 ```
 
 <div align=center>
- <img src='gray.png' width='250px'>
+ <img src='src/gray.png' width='250px'>
 </div>
 
 ### 4. 高斯模糊
@@ -82,7 +82,7 @@ blurred_image = cv2.GaussianBlur(gray_image, kernel_size, sigma_x)
 ```
 
 <div align=center>
- <img src='gussian.png' width='250px'>
+ <img src='src/gussian.png' width='250px'>
 </div>
 
 ### 5. Sobel運算子
@@ -98,7 +98,7 @@ cv2_imshow(Sobelx)
 ```
 
 <div align=center>
- <img src='Sobel.png' width='250px'>
+ <img src='src/Sobel.png' width='250px'>
 </div>
 
 ### 6. 二值化
@@ -109,7 +109,7 @@ thr, binary = cv2.threshold(Sobelx,127, 255, cv2.THRESH_BINARY)
 ```
 
 <div align=center>
- <img src='thresh.png' width='250px'>
+ <img src='src/thresh.png' width='250px'>
 </div>
 
 ### 7. 找出輪廓
@@ -137,7 +137,7 @@ for letter in letters:
 ```
 
 <div align=center>
- <img src='contour.png' width='250px'>
+ <img src='src/contour.png' width='250px'>
 </div>
 
 ### 8. 裁切
@@ -150,7 +150,7 @@ cropped_image=image[0:binary.shape[0],min_x:max_x]
 ```
 
 <div align=center>
- <img src='cropped.png' width='250px'>
+ <img src='src/cropped.png' width='250px'>
 </div>
 
 ### 9. 侵蝕
@@ -162,7 +162,7 @@ ero=cv2.erode(cropped_img,kernel,iterations=1)
 ```
 
 <div align=center>
- <img src='low.png' width='250px'>
+ <img src='src/low.png' width='250px'>
 </div>
 
 ### 10. 膨脹
@@ -174,7 +174,7 @@ dilation=cv2.dilate(ero,kernel,iterations=9)
 ```
 
 <div align=center>
- <img src='high.png' width='250px'>
+ <img src='src/high.png' width='250px'>
 </div>
 
 ### 11. 計算最小矩形
@@ -200,7 +200,7 @@ for contour in contours:
 ```
 
 <div align=center>
- <img src='least area.png' width='250px'>
+ <img src='src/least area.png' width='250px'>
 </div>
 
 ### 12. 仿射變換
@@ -214,7 +214,7 @@ output = cv2.warpAffine(cropped_image, M,(w,h))
 ```
 
 <div align=center>
- <img src='transform.png' width='250px'>
+ <img src='src/transform.png' width='250px'>
 </div>
 
 ### 13. 裁切
@@ -228,7 +228,7 @@ output=output[y-5:y+h,x:x+w]
 ```
 
 <div align=center>
- <img src='cropped-twice.png' width='250px'>
+ <img src='src/cropped-twice.png' width='250px'>
 </div>
 
 ### 14. Tesseract-OCR字元辨識
@@ -245,7 +245,7 @@ else:
 ```
 
 <div align=center>
- <img src='OCR.png' width='250px'>
+ <img src='src/OCR.png' width='250px'>
 </div>
 
 ## 六、展示
@@ -253,9 +253,9 @@ else:
 
 |原圖|結果|原圖|結果|
 |----|----|----|----|
-|![](show1.png)|![](show1-1.png)|![](show2.png)|![](show2-1.png)
-|![](show3.png)|![](show3-1.png)|![](show4.png)|![](show4-1.png)
-|![](show5.png)|![](show5-1.png)|![](show6.png)|![](show6-1.png)
+|![](src/show1.png)|![](src/show1-1.png)|![](src/show2.png)|![](src/show2-1.png)
+|![](src/show3.png)|![](src/show3-1.png)|![](src/show4.png)|![](src/show4-1.png)
+|![](src/show5.png)|![](src/show5-1.png)|![](src/show6.png)|![](src/show6-1.png)
 
 
 ## 七、文字辨識問題
@@ -263,14 +263,14 @@ else:
 
 |錯誤車牌|
 |----|
-|![](OCRproblem1.png)|
-|![](OCRproblem2.png)|
-|![](OCRproblem3.png)|
-|![](OCRproblem4.png)|
+|![](src/OCRproblem1.png)|
+|![](src/OCRproblem2.png)|
+|![](src/OCRproblem3.png)|
+|![](src/OCRproblem4.png)|
 
 Tesseract OCR 的預設英語（eng）訓練數據集包含了多種常見的字體，像是Times new roman、Arial字體。但是可以看到我們台灣的新式車牌字體，與常見的字體會有些許不同，像是3這個字就差很多。所以後續我們會使用Tesseract-LSTM模型進行車牌字體的訓練，針對特別的字去做一些微調，希望能將系統的辨識準確度提高到9成以上。
 
 |台灣新式車牌字體|Times New Roman|
 |----|----|
-|![](twplateword.png)|![](Timesnewroman.png)|
+|![](src/twplateword.png)|![](src/Timesnewroman.png)|
 
